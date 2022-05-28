@@ -6,6 +6,7 @@ const app = express();
 
 const authRoute = require('./routes/v1/AuthRoute');
 const profileRoute = require('./routes/v1/ProfileRoute');
+const lecturesRoute = require('./routes/v1/LecturesRoute');
 
 //middleware
 app.use(express.json());
@@ -18,6 +19,7 @@ app.get('/ping', (req, res) => {
 
 app.use('/v1/auth', authRoute);
 app.use('/v1/profile', profileRoute);
+app.use('/v1/lectures', lecturesRoute);
 
 app.all('*', (req, res) => {
   res.status(404).send({ error: 'Page not found' });

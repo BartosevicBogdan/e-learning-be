@@ -5,6 +5,16 @@ const {
 
 const table = 'users';
 
+async function getUserDB(validValues) {
+  console.log('validValues', validValues);
+  const sql = `
+        SELECT Email, FirstName, LastName, DoB, Avatar
+        from ${table}
+        WHERE ID = ? 
+    `;
+
+  return sqlExecute_ObjectValues(sql, validValues);
+}
 async function updateRequestDB(validValues) {
   console.log('validValues', validValues);
   const sql = `
@@ -19,4 +29,4 @@ async function updateRequestDB(validValues) {
   return sqlExecute_ObjectValues(sql, validValues);
 }
 
-module.exports = { updateRequestDB };
+module.exports = { updateRequestDB, getUserDB };

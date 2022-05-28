@@ -51,7 +51,7 @@ async function loginRequest(req, res) {
   };
 
   verifyPass(checkPassword, truePassword)
-    ? successResponce(res, { token: createToken(dataToToken, '1d') })
+    ? successResponce(res, { token: createToken(dataToToken, '1w') })
     : failResponce(res, 'Credentials not valid');
 }
 

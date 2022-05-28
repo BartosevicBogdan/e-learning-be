@@ -17,6 +17,50 @@ const tablesData = [
       )
     `,
   },
+  {
+    tableName: 'lectures',
+    sql: `
+      CREATE TABLE lectures (
+      ID INT AUTO_INCREMENT PRIMARY KEY,
+      AuthorID INT NOT NULL,
+      CourseID INT,
+      Title varchar(255) NOT NULL,
+      Brief varchar(255),
+      Content TEXT,
+      CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      IsHidden BOOLEAN NOT NULL DEFAULT FALSE,
+      Duration INT,
+      IsArchived BOOLEAN NOT NULL DEFAULT FALSE
+      )
+    `,
+  },
+  {
+    tableName: 'courses',
+    sql: `
+      CREATE TABLE courses (
+      ID INT AUTO_INCREMENT PRIMARY KEY,
+      AuthorID INT NOT NULL,
+      LectureID INT,
+      Title varchar(255) NOT NULL,
+      Brief varchar(255),
+      CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      IsHidden BOOLEAN NOT NULL DEFAULT FALSE,
+      IsArchived BOOLEAN NOT NULL DEFAULT FALSE
+      )
+    `,
+  },
+  {
+    tableName: 'lecture_cluster',
+    sql: `
+      CREATE TABLE lecture_cluster
+      (
+      ID INT AUTO_INCREMENT PRIMARY KEY,
+      IsCourse BOOLEAN NOT NULL DEFAULT FALSE,
+      ReferenceID INT NOT NULL,
+      Title VARCHAR(255) NOT NULL  
+        )
+    `,
+  },
 ];
 
 const createTable = async (tables, table) => {

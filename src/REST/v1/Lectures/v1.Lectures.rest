@@ -1,0 +1,21 @@
+// Dynamic path
+POST http://localhost:8080/v1/lectures/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTgsIkVtYWlsIjoidGVzdDE4QHRlc3QuY29tIiwiaWF0IjoxNjUzMzg2NjY3LCJleHAiOjE2NTM0NzMwNjd9.qhEKhmnbDj7NLX9jToFx8fHiRTQVdsXBVrDSMocp3pI
+
+{
+    "Title" : "Rest title",
+    "Brief" : "Rest brief",
+    "Content" : "Rest content"
+}
+###
+GET http://localhost:8080/v1/lectures/get
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTgsIkVtYWlsIjoidGVzdDE4QHRlc3QuY29tIiwiaWF0IjoxNjUzMzg2NjY3LCJleHAiOjE2NTM0NzMwNjd9.qhEKhmnbDj7NLX9jToFx8fHiRTQVdsXBVrDSMocp3pI
+
+###
+GET http://localhost:8080/v1/lectures/get/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTgsIkVtYWlsIjoidGVzdDE4QHRlc3QuY29tIiwiaWF0IjoxNjUzMzg2NjY3LCJleHAiOjE2NTM0NzMwNjd9.qhEKhmnbDj7NLX9jToFx8fHiRTQVdsXBVrDSMocp3pI
+
+###
