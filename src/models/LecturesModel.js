@@ -32,5 +32,19 @@ async function getLectureByIDinDB(ID) {
 
   return sqlExecute_ObjectValues(sql, [ID]);
 }
+async function myLecturesDB(ID) {
+  //   console.log('validValues', validValues);
+  const sql = `
+        SELECT * from ${table}
+        WHERE AuthorID = ?
+    `;
 
-module.exports = { createLectureDB, getLecturesDB, getLectureByIDinDB };
+  return sqlExecute_ObjectValues(sql, [ID]);
+}
+
+module.exports = {
+  createLectureDB,
+  myLecturesDB,
+  getLecturesDB,
+  getLectureByIDinDB,
+};

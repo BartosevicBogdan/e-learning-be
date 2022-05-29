@@ -1,6 +1,7 @@
 const {
   createLectureDB,
   getLecturesDB,
+  myLecturesDB,
   getLectureByIDinDB,
 } = require('../models/LecturesModel');
 const { successResponce, failResponce } = require('../utils/helpers');
@@ -26,6 +27,18 @@ async function createLecture(req, res) {
     : failResponce(res, 'Credentials not valid');
 }
 
+async function myLectures(req, res) {
+  console.log('req.params.ID', req.params.ID);
+  console.log('req.user.ID', req.user.ID);
+  const IdToPass = req.params.ID === 'undefined' ? req.user.ID : req.params.ID;
+  const dbResponseInJS = await myLecturesDB(IdToPass);
+
+  console.log('myLectures', dbResponseInJS);
+  dbResponseInJS.length > 0
+    ? successResponce(res, dbResponseInJS)
+    : failResponce(res, `You don't have lectures, yet`);
+}
+
 async function getLectures(req, res) {
   const dbResponseInJS = await getLecturesDB();
 
@@ -49,4 +62,5 @@ module.exports = {
   createLecture,
   getLectures,
   getLectureByID,
+  myLectures,
 };

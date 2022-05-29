@@ -19,10 +19,11 @@ async function updateRequestDB(validValues) {
   console.log('validValues', validValues);
   const sql = `
         UPDATE ${table}
-        SET Password = ?,
+        SET 
             FirstName = ?, 
             LastName = ?, 
-            DoB = ?
+            DoB = ?,
+            Avatar =?
         WHERE ID = ? 
     `;
 

@@ -33,15 +33,16 @@ async function getUserDataByDynamicID(req, res) {
   //   }
 }
 async function updateProfile(req, res) {
-  const { FirstName, Password, LastName, DoB } = req.body;
-  console.log('req.params', req.params);
-  console.log('req.params.id', req.params.id);
+  const { FirstName, LastName, DoB, Avatar } = req.body;
+  // console.log('req.params', req.params);
+  // console.log('req.params.id', req.params.id);
+  console.log('req.user.ID', req.user.ID);
   const newUserData = {
-    Password,
     FirstName,
     LastName,
     DoB,
-    ID: req.params.id,
+    Avatar,
+    ID: req.user.ID,
   };
   console.log(newUserData);
   const dbResponseInJS = await updateRequestDB(newUserData);
