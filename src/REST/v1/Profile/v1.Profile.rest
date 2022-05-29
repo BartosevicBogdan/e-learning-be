@@ -1,7 +1,7 @@
 // Dynamic path
-PUT http://localhost:8080/v1/profile/update/1
+PUT http://localhost:8080/v1/profile/update/unknown
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTcsIkVtYWlsIjoidGVzdDE3QHRlc3QuY29tIiwiaWF0IjoxNjUzMjM1NTY2LCJleHAiOjE2NTMzMjE5NjZ9.hC6MklE9pRRfMCjrXh_vju-5fniyaWkkfzs9DQJ4u0A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
 
 {
     "Password" : "Password",
@@ -13,6 +13,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTcsIkVtYWlsI
 
 GET http://localhost:8080/v1/profile/get/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MTcsIkVtYWlsIjoidGVzdDE3QHRlc3QuY29tIiwiaWF0IjoxNjUzMjM1NTY2LCJleHAiOjE2NTMzMjE5NjZ9.hC6MklE9pRRfMCjrXh_vju-5fniyaWkkfzs9DQJ4u0A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
 ###
 
