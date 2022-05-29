@@ -6,7 +6,8 @@ const {
 const table = 'users';
 
 async function getUserDB(validValues) {
-  console.log('validValues', validValues);
+  // console.log('getUserDB, validValues', validValues);
+
   const sql = `
         SELECT Email, FirstName, LastName, DoB, Avatar
         from ${table}
@@ -16,7 +17,8 @@ async function getUserDB(validValues) {
   return sqlExecute_ObjectValues(sql, validValues);
 }
 async function updateRequestDB(validValues) {
-  console.log('validValues', validValues);
+  // console.log('updateRequestDB, validValues', validValues);
+
   const sql = `
         UPDATE ${table}
         SET 

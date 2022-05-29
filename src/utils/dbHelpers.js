@@ -19,7 +19,7 @@ async function sqlExecute_ObjectValues(sql, validValues) {
     await conn.close();
     return fields;
   } catch (error) {
-    // console.log('error', error);
+    // console.log('sqlExecute_ObjectValues, error', error);
     return catchErrorObject(error, validValues);
   }
 }
@@ -30,7 +30,7 @@ async function sqlExecute_ArrayValues(sql, validValues) {
     await conn.close();
     return fields;
   } catch (error) {
-    // console.log(error);
+    // console.log('sqlExecute_ArrayValues, error',error);
     return catchErrorObject(error, validValues);
   }
 }

@@ -18,44 +18,53 @@ async function createLecture(req, res) {
     Brief,
     Content,
   };
-  // console.log('newUserData', newUserData);
+
+  // console.log('createLecture, newUserData', newUserData);
+
   const dbResponseInJS = await createLectureDB(newUserData);
 
-  // console.log('dbResponseInJS', dbResponseInJS);
+  // console.log('createLecture, dbResponseInJS', dbResponseInJS);
+
   !!dbResponseInJS.affectedRows && dbResponseInJS.insertId
     ? successResponce(res, { msg: 'lecture created' })
     : failResponce(res, 'Credentials not valid');
 }
 
 async function myLectures(req, res) {
-  console.log('req.params.ID', req.params.ID);
-  console.log('req.user.ID', req.user.ID);
+  // console.log('myLectures, req.params.ID', req.params.ID);
+  // console.log('myLectures, req.user.ID', req.user.ID);
+
   const IdToPass = req.params.ID === 'undefined' ? req.user.ID : req.params.ID;
+
   const dbResponseInJS = await myLecturesDB(IdToPass);
 
-  console.log('myLectures', dbResponseInJS);
+  // console.log('myLectures, dbResponseInJS', dbResponseInJS);
+
   dbResponseInJS.length > 0
     ? successResponce(res, dbResponseInJS)
-    : failResponce(res, `You don't have lectures, yet`);
+    : failResponce(res, { msg: `You don't have lectures, yet` });
 }
 
 async function getLectures(req, res) {
   const dbResponseInJS = await getLecturesDB();
 
-  // console.log('dbResponseInJS', dbResponseInJS);
+  // console.log('getLectures, dbResponseInJS', dbResponseInJS);
 
   return dbResponseInJS.length !== 0
     ? successResponce(res, dbResponseInJS)
-    : failResponce(res, 'Credentials not valid');
+    : failResponce(res, { msg: 'Lectures not found' });
 }
 
 async function getLectureByID(req, res) {
   const dbResponseInJS = await getLectureByIDinDB(req.params.ID);
 
-  // console.log('dbResponseInJS', dbResponseInJS);
+  // console.log('getLectureByID, dbResponseInJS', dbResponseInJS);
+
   return dbResponseInJS.length !== 0
     ? successResponce(res, dbResponseInJS)
-    : failResponce(res, `Lecture not found by this id:${req.params.ID}`);
+    : failResponce(res, {
+        msg: `Lecture not found by this id:${req.params.ID}`,
+      });
 }
 
 module.exports = {

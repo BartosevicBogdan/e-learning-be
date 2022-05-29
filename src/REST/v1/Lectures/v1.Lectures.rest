@@ -1,27 +1,28 @@
 // Dynamic path
 POST http://localhost:8080/v1/lectures/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
+Authorization: Bearer {insert valid token} 
 
 {
     "Title" : "Rest title",
     "Brief" : "Rest brief",
     "Content" : "Rest content"
 }
+
 ###
 GET http://localhost:8080/v1/lectures/get
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
+Authorization: Bearer {insert valid token} 
 
 ###
+
 GET http://localhost:8080/v1/lectures/get/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
+Authorization: Bearer {insert valid token} 
 
 ###
-###
+
 GET http://localhost:8080/v1/lectures/myLectures
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
-
+Authorization: Bearer {insert valid token} 
 ###

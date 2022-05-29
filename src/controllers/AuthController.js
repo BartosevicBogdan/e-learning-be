@@ -19,9 +19,11 @@ async function registrationRequest(req, res) {
     Password: hashPass(Password),
   };
 
+  // console.log('registrationRequest, newUserData', newUserData);
+
   const dbResponseInJS = await registrationRequestDB(newUserData);
 
-  console.log('dbResponseInJS', dbResponseInJS);
+  // console.log('registrationRequest, dbResponseInJS', dbResponseInJS);
 
   //success state
   if (dbResponseInJS.affectedRows === 1)
@@ -43,6 +45,7 @@ async function loginRequest(req, res) {
   const { Email: email, Password: checkPassword } = req.body;
 
   const dbResponseInJS = await loginRequestDB({ email });
+
   const { ID, Email, Password: truePassword } = dbResponseInJS[0];
   console.log('dbResponseInJS[0]', dbResponseInJS[0]);
 

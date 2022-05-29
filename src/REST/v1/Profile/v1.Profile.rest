@@ -1,7 +1,7 @@
 // Dynamic path
 PUT http://localhost:8080/v1/profile/update/unknown
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
+Authorization: Bearer {insert valid token} 
 
 {
     "Password" : "Password",
@@ -13,6 +13,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsI
 
 GET http://localhost:8080/v1/profile/get/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MjksIkVtYWlsIjoidGVzdDI1QHRlc3QuY29tIiwiaWF0IjoxNjUzNzMwOTMzLCJleHAiOjE2NTQzMzU3MzN9.27kUDn9QUGIZvsn6mt_uWKBcnV35lLOS8wpvrQYFaG8
+Authorization: Bearer {insert valid token} 
 ###
 

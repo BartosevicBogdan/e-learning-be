@@ -3,8 +3,10 @@ const {
   registrationRequest,
   loginRequest,
 } = require('../../controllers/AuthController');
+
 const validation = require('../../middleware/validation');
 const { userAuthSchema } = require('../../utils/schemas');
+
 const router = express.Router();
 
 router.post('/register', validation(userAuthSchema), registrationRequest);

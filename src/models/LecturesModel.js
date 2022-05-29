@@ -1,12 +1,10 @@
-const {
-  sqlExecute_ObjectValues,
-  //   sqlExecute_ArrayValues,
-} = require('../utils/dbHelpers');
+const { sqlExecute_ObjectValues } = require('../utils/dbHelpers');
 
 const table = 'lectures';
 
 async function createLectureDB(validValues) {
-  console.log('validValues', validValues);
+  // console.log('createLectureDB, validValues', validValues);
+
   const sql = `
         INSERT INTO ${table}
         ( AuthorID, Title, Brief, Content )
@@ -16,7 +14,8 @@ async function createLectureDB(validValues) {
   return sqlExecute_ObjectValues(sql, validValues);
 }
 async function getLecturesDB() {
-  //   console.log('validValues', validValues);
+  //   console.log('getLecturesDB, validValues', validValues);
+
   const sql = `
         SELECT * from ${table}
     `;
@@ -24,7 +23,8 @@ async function getLecturesDB() {
   return sqlExecute_ObjectValues(sql, []);
 }
 async function getLectureByIDinDB(ID) {
-  //   console.log('validValues', validValues);
+  //   console.log('getLectureByIDinDB, validValues', validValues);
+
   const sql = `
         SELECT * from ${table}
         WHERE ID = ?
@@ -33,7 +33,8 @@ async function getLectureByIDinDB(ID) {
   return sqlExecute_ObjectValues(sql, [ID]);
 }
 async function myLecturesDB(ID) {
-  //   console.log('validValues', validValues);
+  //   console.log('myLecturesDB, validValues', validValues);
+
   const sql = `
         SELECT * from ${table}
         WHERE AuthorID = ?
