@@ -12,7 +12,7 @@ Authorization: Bearer {insert valid token}
 ###
 GET http://localhost:8080/v1/lectures/get
 Content-Type: application/json
-Authorization: Bearer {insert valid token} 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MzYsIkVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTY1MzkxMDY2NCwiZXhwIjoxNjU0NTE1NDY0fQ.U_-0nBmET0mMwj1k1RonLAmnj0szMcrz4SGM83hP0P8  
 
 ###
 
@@ -25,4 +25,9 @@ Authorization: Bearer {insert valid token}
 GET http://localhost:8080/v1/lectures/myLectures
 Content-Type: application/json
 Authorization: Bearer {insert valid token} 
+###
+
+DELETE http://localhost:8080/v1/lectures/delete/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MzYsIkVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTY1MzkxMDY2NCwiZXhwIjoxNjU0NTE1NDY0fQ.U_-0nBmET0mMwj1k1RonLAmnj0szMcrz4SGM83hP0P8 
 ###

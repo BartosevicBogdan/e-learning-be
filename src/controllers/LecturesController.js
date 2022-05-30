@@ -1,8 +1,10 @@
+const { json } = require('express/lib/response');
 const {
   createLectureDB,
   getLecturesDB,
   myLecturesDB,
   getLectureByIDinDB,
+  archiveLectureDB,
 } = require('../models/LecturesModel');
 const { successResponce, failResponce } = require('../utils/helpers');
 
@@ -68,14 +70,15 @@ async function getLectureByID(req, res) {
 }
 
 async function archiveLecture(req, res) {
-  const dbResponseInJS = await getLectureByIDinDB(req.params.ID);
+  // console.log('req.params.ID', req.params.ID);
 
-  console.log('archiveLecture, dbResponseInJS', dbResponseInJS);
+  const dbResponseInJS = await archiveLectureDB(req.params.ID);
+  // console.log('archiveLecture, dbResponseInJS', dbResponseInJS);
 
   return dbResponseInJS.affectedRows
     ? successResponce(res, dbResponseInJS)
     : failResponce(res, {
-        msg: `Lecture not found by this id:${req.params.ID}`,
+        msg: `Delete action denied. Lecture not found by this id:${req.params.ID}`,
       });
 }
 
