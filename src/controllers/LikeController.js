@@ -55,6 +55,28 @@ async function invertLike(req, res) {
   }
 }
 
+async function getLikes(req, res) {
+  const { LectureID, UserID } = req.body;
+
+  const DataToTransmit = {
+    Count: 0,
+    Clicked: false,
+  };
+
+  const dbResponseInJS = await lecturesLikesDB(LectureID);
+
+  if (dbResponseInJS) {
+    const count = dbResponseInJS.filter((el) => el.Clicked === 1);
+    DataToTransmit.Count = count.length;
+
+    const userClick = dbResponseInJS.find((el) => UserID === el.UserID);
+    DataToTransmit.Clicked = userClick ? userClick.Clicked : false;
+    return successResponce(res, DataToTransmit);
+  }
+  return successResponce(res, DataToTransmit);
+}
+
 module.exports = {
   invertLike,
+  getLikes,
 };

@@ -10,7 +10,7 @@ async function lecturesLikesDB(validValues) {
 
   const sql = `
         SELECT * from ${table}
-        WHERE LectureID = ? 
+        WHERE LectureID = ?
     `;
 
   return sqlExecute_ObjectValues(sql, [validValues]);
