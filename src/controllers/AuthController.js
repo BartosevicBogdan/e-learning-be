@@ -46,6 +46,12 @@ async function loginRequest(req, res) {
 
   const dbResponseInJS = await loginRequestDB({ email });
 
+  console.log('loginRequest, dbResponseInJs', dbResponseInJS);
+
+  if (!dbResponseInJS[0]) {
+    return failResponce(res, 'User not exist');
+  }
+
   const { ID, Email, Password: truePassword } = dbResponseInJS[0];
   console.log('dbResponseInJS[0]', dbResponseInJS[0]);
 
