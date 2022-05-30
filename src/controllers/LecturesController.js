@@ -67,9 +67,22 @@ async function getLectureByID(req, res) {
       });
 }
 
+async function archiveLecture(req, res) {
+  const dbResponseInJS = await getLectureByIDinDB(req.params.ID);
+
+  console.log('archiveLecture, dbResponseInJS', dbResponseInJS);
+
+  return dbResponseInJS.affectedRows
+    ? successResponce(res, dbResponseInJS)
+    : failResponce(res, {
+        msg: `Lecture not found by this id:${req.params.ID}`,
+      });
+}
+
 module.exports = {
   createLecture,
   getLectures,
   getLectureByID,
   myLectures,
+  archiveLecture,
 };

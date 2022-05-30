@@ -13,11 +13,23 @@ async function createLectureDB(validValues) {
 
   return sqlExecute_ObjectValues(sql, validValues);
 }
+async function archiveLectureDB(validValues) {
+  // console.log('archiveLectureDB, validValues', validValues);
+
+  const sql = `
+    UPDATE ${table}
+      SET Archived = True
+      WHERE ID = ?
+      `;
+
+  return sqlExecute_ObjectValues(sql, validValues);
+}
 async function getLecturesDB() {
   //   console.log('getLecturesDB, validValues', validValues);
 
   const sql = `
         SELECT * from ${table}
+        WHERE Archived = False
     `;
 
   return sqlExecute_ObjectValues(sql, []);
@@ -48,4 +60,5 @@ module.exports = {
   myLecturesDB,
   getLecturesDB,
   getLectureByIDinDB,
+  archiveLectureDB,
 };
