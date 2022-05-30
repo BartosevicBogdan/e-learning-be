@@ -1,4 +1,3 @@
-const { json } = require('express/lib/response');
 const {
   createLectureDB,
   getLecturesDB,
