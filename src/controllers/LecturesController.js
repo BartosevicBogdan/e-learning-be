@@ -71,7 +71,7 @@ async function getLectureByID(req, res) {
 async function archiveLecture(req, res) {
   // console.log('req.params.ID', req.params.ID);
 
-  const dbResponseInJS = await archiveLectureDB(req.params.ID);
+  const dbResponseInJS = await archiveLectureDB({ ID: req.params.ID });
   // console.log('archiveLecture, dbResponseInJS', dbResponseInJS);
 
   return dbResponseInJS.affectedRows
