@@ -1,0 +1,12 @@
+// Dynamic path
+POST http://localhost:8080/v1/like/invert
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MzYsIkVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTY1MzkxMDY2NCwiZXhwIjoxNjU0NTE1NDY0fQ.U_-0nBmET0mMwj1k1RonLAmnj0szMcrz4SGM83hP0P8 
+
+{
+    "UserID": 8,
+    "LectureID": 27
+}
+###
+
+
