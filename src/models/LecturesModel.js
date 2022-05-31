@@ -49,7 +49,7 @@ async function myLecturesDB(ID) {
 
   const sql = `
         SELECT * from ${table}
-        WHERE AuthorID = ?
+        WHERE AuthorID = ? AND Archived = 0
     `;
 
   return sqlExecute_ObjectValues(sql, [ID]);
