@@ -3,61 +3,50 @@ const { dbConfig } = require('../config');
 
 const tablesData = [
   {
-    tableName: 'user',
+    tableName: 'users',
     sql: `
-      CREATE TABLE users (
-      ID int AUTO_INCREMENT PRIMARY KEY,
-      Email varchar(50) NOT NULL UNIQUE,
-      Password varchar(255) NOT NULL,
-      FirstName varchar(255),
-      LastName varchar(255),
-      DoB date,
-      CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      IsArchived BOOLEAN NOT NULL DEFAULT FALSE
-      )
+      CREATE TABLE
+        "users1" (
+          "ID" int NOT NULL AUTO_INCREMENT,
+          "Email" varchar(50) NOT NULL,
+          "Password" varchar(255) NOT NULL,
+          "FirstName" varchar(255) DEFAULT NULL,
+          "LastName" varchar(255) DEFAULT NULL,
+          "DoB" date DEFAULT NULL,
+          "CreatedAt" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          "IsArchived" tinyint(1) NOT NULL DEFAULT '0',
+          "Avatar" varchar(255) DEFAULT NULL,
+          PRIMARY KEY ("ID"),
+          UNIQUE KEY "Email" ("Email")
+        )
     `,
   },
   {
     tableName: 'lectures',
     sql: `
-      CREATE TABLE lectures (
-      ID INT AUTO_INCREMENT PRIMARY KEY,
-      AuthorID INT NOT NULL,
-      CourseID INT,
-      Title varchar(255) NOT NULL,
-      Brief varchar(255),
-      Content TEXT,
-      CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      IsHidden BOOLEAN NOT NULL DEFAULT FALSE,
-      Duration INT,
-      IsArchived BOOLEAN NOT NULL DEFAULT FALSE
-      )
+      CREATE TABLE
+        "lectures" (
+          "ID" int NOT NULL AUTO_INCREMENT,
+          "AuthorID" int NOT NULL,
+          "Title" varchar(255) NOT NULL,
+          "Brief" varchar(255) DEFAULT NULL,
+          "Content" text,
+          "CreatedAt" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          "Archived" tinyint(1) NOT NULL DEFAULT '0',
+          PRIMARY KEY ("ID")
+        )
     `,
   },
   {
-    tableName: 'courses',
+    tableName: 'likes',
     sql: `
-      CREATE TABLE courses (
-      ID INT AUTO_INCREMENT PRIMARY KEY,
-      AuthorID INT NOT NULL,
-      LectureID INT,
-      Title varchar(255) NOT NULL,
-      Brief varchar(255),
-      CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      IsHidden BOOLEAN NOT NULL DEFAULT FALSE,
-      IsArchived BOOLEAN NOT NULL DEFAULT FALSE
-      )
-    `,
-  },
-  {
-    tableName: 'lecture_cluster',
-    sql: `
-      CREATE TABLE lecture_cluster
-      (
-      ID INT AUTO_INCREMENT PRIMARY KEY,
-      IsCourse BOOLEAN NOT NULL DEFAULT FALSE,
-      ReferenceID INT NOT NULL,
-      Title VARCHAR(255) NOT NULL  
+      CREATE TABLE
+        "likes" (
+          "ID" int unsigned NOT NULL AUTO_INCREMENT,
+          "LectureID" int DEFAULT NULL,
+          "UserID" int DEFAULT NULL,
+          "Clicked" tinyint(1) NOT NULL DEFAULT '0',
+          PRIMARY KEY ("ID")
         )
     `,
   },
